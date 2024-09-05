@@ -17,7 +17,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "build": "tsc",
-    "start": "pnpm run build && node dist/main.js",
+    "start": "pnpm run build && node dist/main.js && tee -a logs/${date +%Y-%m-%d-%H-%M-%S}.log",
     "typecheck": "tsc --noEmit",
     "lint-staged": "lint-staged",
     "format": "biome format --write ./src",
