@@ -1,5 +1,5 @@
 import type { LoadTestOptions } from "loadtest";
-import { BODY, HEADERS } from "../../request";
+import { BODY, HEADERS } from "../../request.js";
 
 export const requestGenerator: LoadTestOptions["requestGenerator"] = (
   _,

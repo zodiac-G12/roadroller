@@ -1,7 +1,7 @@
 import "dotenv/config";
 import type { LoadTestResult } from "loadtest";
 import { loadTest } from "loadtest";
-import { getOptions } from "./options/options";
+import { getOptions } from "./options/options.js";
 
 const options = getOptions();
 

@@ -1,6 +1,6 @@
 import type { LoadTestOptions } from "loadtest";
-import { requestGenerator } from "./options-methods/request-generator";
-import { statusCallback } from "./options-methods/status-callback";
+import { requestGenerator } from "./options-methods/request-generator.js";
+import { statusCallback } from "./options-methods/status-callback.js";
 
 const HTTP_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"] as const;
 type HttpMethod = (typeof HTTP_METHODS)[number];

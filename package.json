@@ -8,7 +8,7 @@
   "type": "module",
   "main": "src/main.ts",
   "engines": {
-    "node": ">=22.5.1",
+    "node": ">=22.8.0",
     "npm": "npmではなくpnpmを使用してください",
     "yarn": "yarnではなくpnpmを使用してください",
     "pnpm": ">=9.9.0"
@@ -17,25 +17,26 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "build": "tsc",
-    "start": "ts-node src/main.ts && tee -a logs/${date +%Y-%m-%d-%H-%M-%S}.log",
-    "type-check": "tsc --noEmit",
+    "start": "pnpm run build && node dist/main.js",
+    "typecheck": "tsc --noEmit",
     "lint-staged": "lint-staged",
     "format": "biome format --write ./src",
     "lint": "biome lint ./src"
   },
   "lint-staged": {
+    "*.{ts,tsx}": ["pnpm typecheck"],
     "*.{js,json,md,yml,ts,tsx,jsx,css,scss}": ["pnpm format", "pnpm lint"]
   },
   "devDependencies": {
-    "@types/node": "^22.5.3",
     "@biomejs/biome": "1.8.3",
+    "@types/node": "^22.5.3",
+    "dotenv": "^16.4.5",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
-    "dotenv": "^16.4.5"
+    "tsx": "^4.19.0"
   },
   "dependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4",
-    "loadtest": "^8.0.9"
+    "loadtest": "^8.0.9",
+    "typescript": "^5.5.4"
   }
 }
